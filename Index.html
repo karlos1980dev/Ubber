@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -25,7 +27,7 @@
       display: block;
       margin-top: 1rem;
     }
-    input, textarea, button, datalist {
+    input, textarea, button, datalist, select {
       width: 100%;
       padding: 10px;
       margin-top: 0.5rem;
@@ -41,7 +43,7 @@
       margin-top: 1.5rem;
     }
     #mapa {
-      height: 300px;
+      height: 200px;
       margin-top: 1rem;
     }
     #resultado {
@@ -55,12 +57,18 @@
 </head>
 <body>
   <header>
-    <h1>Solicitação de Corrida</h1>
+    <h1>🏍️VOUJA🚗</h1>
   </header>
   <main>
-      <label for="nome">Seu nome:</label>
+    <label for="nome">Seu nome:</label>
     <input type="text" id="nome" placeholder="Digite seu nome">
-    
+
+    <label for="veiculo">Tipo de veículo:</label>
+    <select id="veiculo">
+      <option value="carro">Carro</option>
+      <option value="moto">Moto</option>
+    </select>
+
     <label for="origem">Origem:</label>
     <input type="text" id="origem" placeholder="Digite sua origem" list="lista-origem">
     <datalist id="lista-origem"></datalist>
@@ -76,7 +84,6 @@
     <textarea id="observacao" rows="3" placeholder="Ponto de referência, observações..."></textarea>
 
     <div id="resultado">Distância: 0 km | Valor Total: R$ 0,00</div>
-
     <div id="mapa"></div>
 
     <button onclick="enviarWhatsApp()">Enviar via WhatsApp</button>
@@ -178,7 +185,7 @@
         const distancia = calcularDistancia(origemCoords, destinoCoords);
         const total = Math.ceil(distancia / 2) * 5;
         document.getElementById('resultado').innerText =
-          `Distância: ${distancia.toFixed(2)} km | Valor Total: R$ ${total.toFixed(2)}`;
+          `Distância: ${distancia.toFixed(2)} km \n Valor Total: R$ ${total.toFixed(2)}`;
       }
     }
 
@@ -188,22 +195,25 @@
       const nome = document.getElementById('nome').value;
       const valorDesejado = document.getElementById('valorDesejado').value;
       const observacao = document.getElementById('observacao').value;
+      const tipoVeiculo = document.getElementById('veiculo').value;
       const textoResultado = document.getElementById('resultado').innerText;
 
       const mensagem = `*Nova solicitação de corrida*\n\n` +
         `*Nome:* ${nome}\n\n` +
-        `*Origem:* ${origem}\n\n` +
-        `*Destino:* ${destino}\n\n` +
+        `*Veículo:* ${tipoVeiculo.toUpperCase()}\n\n` +
+        `*ORIGEM :* ${origem}\n\n` +
+        `*DESTINO :* ${destino}\n\n` +
         `*${textoResultado}*\n\n` +
         `*Valor desejado:* R$ ${valorDesejado || 'Não informado'}\n\n` +
         `*Observações:* ${observacao}`;
 
-      const numeroWhatsApp = "5571993010261";
+      const numeroCarro = "5571991585904";
+      const numeroMoto = "5571992290058";
+      const numeroWhatsApp = tipoVeiculo === "moto" ? numeroMoto : numeroCarro;
+
       const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
       window.open(url, '_blank');
     }
   </script>
 </body>
 </html>
-
-
