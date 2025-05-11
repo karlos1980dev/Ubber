@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Solicitação de Corrida</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background: #008CBA;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    main {
+      padding: 1rem;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+    }
+    input, textarea, button, datalist {
+      width: 100%;
+      padding: 10px;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1.5rem;
+    }
+    #mapa {
+      height: 300px;
+      margin-top: 1rem;
+    }
+    #resultado {
+      background: #fff3cd;
+      padding: 1rem;
+      border: 1px solid #ffeeba;
+      border-radius: 5px;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Solicitação de Corrida</h1>
+  </header>
+  <main>
+      <label for="nome">Seu nome:</label>
+    <input type="text" id="nome" placeholder="Digite seu nome">
+    
+    <label for="origem">Origem:</label>
+    <input type="text" id="origem" placeholder="Digite sua origem" list="lista-origem">
+    <datalist id="lista-origem"></datalist>
+
+    <label for="destino">Destino:</label>
+    <input type="text" id="destino" placeholder="Digite o destino" list="lista-destino">
+    <datalist id="lista-destino"></datalist>
+
+    <label for="valorDesejado">Valor desejado (opcional):</label>
+    <input type="number" id="valorDesejado" placeholder="Ex: 20.00">
+
+    <label for="observacao">Observações:</label>
+    <textarea id="observacao" rows="3" placeholder="Ponto de referência, observações..."></textarea>
+
+    <div id="resultado">Distância: 0 km | Valor Total: R$ 0,00</div>
+
+    <div id="mapa"></div>
+
+    <button onclick="enviarWhatsApp()">Enviar via WhatsApp</button>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    let mapa = L.map('mapa').setView([-12.9714, -38.5014], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a>'
+    }).addTo(mapa);
+
+    let origemCoords = null;
+    let destinoCoords = null;
+    let marcadorOrigem = null;
+    let marcadorDestino = null;
+
+    document.getElementById('origem').addEventListener('input', () => {
+      autocompletarEndereco('origem', 'lista-origem');
+    });
+
+    document.getElementById('destino').addEventListener('input', () => {
+      autocompletarEndereco('destino', 'lista-destino');
+    });
+
+    document.getElementById('origem').addEventListener('change', () => {
+      atualizarCoordenadasEndereco('origem', 'origem');
+    });
+
+    document.getElementById('destino').addEventListener('change', () => {
+      atualizarCoordenadasEndereco('destino', 'destino');
+    });
+
+    async function autocompletarEndereco(campoId, datalistId) {
+      const valor = document.getElementById(campoId).value;
+      if (valor.length < 3) return;
+
+      try {
+        const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&q=${encodeURIComponent(valor + ', Salvador, Bahia, Brasil')}`);
+        const data = await res.json();
+
+        const datalist = document.getElementById(datalistId);
+        datalist.innerHTML = '';
+
+        data.forEach(item => {
+          const option = document.createElement('option');
+          option.value = item.display_name;
+          datalist.appendChild(option);
+        });
+      } catch (err) {
+        console.error('Erro ao buscar autocomplete:', err);
+      }
+    }
+
+    async function atualizarCoordenadasEndereco(idCampo, tipo) {
+      const endereco = document.getElementById(idCampo).value.trim();
+      if (endereco.length < 5) return;
+
+      try {
+        const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(endereco)}`);
+        const data = await res.json();
+        if (data && data[0]) {
+          const latlng = {
+            lat: parseFloat(data[0].lat),
+            lng: parseFloat(data[0].lon)
+          };
+
+          if (tipo === 'origem') {
+            origemCoords = latlng;
+            if (marcadorOrigem) mapa.removeLayer(marcadorOrigem);
+            marcadorOrigem = L.marker(latlng).addTo(mapa).bindPopup("Origem").openPopup();
+          } else {
+            destinoCoords = latlng;
+            if (marcadorDestino) mapa.removeLayer(marcadorDestino);
+            marcadorDestino = L.marker(latlng).addTo(mapa).bindPopup("Destino").openPopup();
+          }
+
+          mapa.setView(latlng, 14);
+          calcularValorAutomatico();
+        }
+      } catch (err) {
+        console.error("Erro ao buscar coordenadas:", err);
+      }
+    }
+
+    function calcularDistancia(coord1, coord2) {
+      const R = 6371;
+      const dLat = (coord2.lat - coord1.lat) * Math.PI / 180;
+      const dLon = (coord2.lng - coord1.lng) * Math.PI / 180;
+      const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(coord1.lat * Math.PI / 180) * Math.cos(coord2.lat * Math.PI / 180) *
+                Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * c;
+    }
+
+    function calcularValorAutomatico() {
+      if (origemCoords && destinoCoords) {
+        const distancia = calcularDistancia(origemCoords, destinoCoords);
+        const total = Math.ceil(distancia / 2) * 5;
+        document.getElementById('resultado').innerText =
+          `Distância: ${distancia.toFixed(2)} km | Valor Total: R$ ${total.toFixed(2)}`;
+      }
+    }
+
+    function enviarWhatsApp() {
+      const origem = document.getElementById('origem').value;
+      const destino = document.getElementById('destino').value;
+      const nome = document.getElementById('nome').value;
+      const valorDesejado = document.getElementById('valorDesejado').value;
+      const observacao = document.getElementById('observacao').value;
+      const textoResultado = document.getElementById('resultado').innerText;
+
+      const mensagem = `*Nova solicitação de corrida*\n\n` +
+        `*Nome:* ${nome}\n\n` +
+        `*Origem:* ${origem}\n\n` +
+        `*Destino:* ${destino}\n\n` +
+        `*${textoResultado}*\n\n` +
+        `*Valor desejado:* R$ ${valorDesejado || 'Não informado'}\n\n` +
+        `*Observações:* ${observacao}`;
+
+      const numeroWhatsApp = "5571993010261";
+      const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
+
+
