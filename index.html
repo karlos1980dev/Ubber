@@ -6,12 +6,13 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen"/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <title>vou ja ssa</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
+      background-color: tomato;
     }
     header {
       background: #008CBA;
@@ -112,7 +113,7 @@
 </head>
 <body>
   <header>
-    <h1>🏍️VOU-JA-DRIVER🚗</h1>
+    <h1>🏍️VOU-JA-SSA🚗</h1>
   </header>
   <main>
     <div id="resultado">Distância: 0 km | Valor Total: R$ 0,00</div>
@@ -267,7 +268,7 @@
     function calcularValorAutomatico() {
   if (origemCoords && destinoCoords) {
     const distancia = calcularDistancia(origemCoords, destinoCoords);
-    const valorCarro = Math.ceil(distancia / 2) * 7;
+    const valorCarro = Math.ceil(distancia / 2) * 5;
     const valorMoto = valorCarro / 2;
 
     document.getElementById('resultado').innerHTML =
@@ -302,7 +303,7 @@
 
       const numeros = tipoVeiculo === "moto" ?
         ["5571992290058", "5571991585904"] :
-        ["5571993010261", "5571982222222"];
+        ["5571987444544", "5571987444544"];
 
       const numero = numeros[Math.floor(Math.random() * numeros.length)];
       linkWhatsApp = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
