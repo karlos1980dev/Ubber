@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//pt-BR">
 <head>
-  <link rel="shortcut icon" type="image/jpg" href="https://raw.githubusercontent.com/karlos1980dev/Ubber/refs/heads/main/vou%20j%C3%A1.jpg"/>
-  <link rel="icon" href="https://raw.githubusercontent.com/karlos1980dev/Ubber/refs/heads/main/vou%20j%C3%A1.jpg" type="image/jpg"/>
+  <link rel="shortcut icon" type="image/jpg" href="https://raw.githubusercontent.com/karlos1980dev/Ubber/refs/heads/main/IMG_20250511_103115.jpg"/>
+  <link rel="icon" href="https://raw.githubusercontent.com/karlos1980dev/Ubber/refs/heads/main/IMG_20250511_103115.jpg" type="image/jpg"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen"/>
@@ -91,6 +91,23 @@
     .nome{
         text-align:center;
     }
+    .valorCarro {
+  background-color: #007bff;
+  color: white;
+  padding: 8px;
+  border-radius: 5px;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.valorMoto {
+  background-color: #28a745;
+  color: white;
+  padding: 8px;
+  border-radius: 5px;
+  margin-top: 5px;
+  font-weight: bold;
+}
   </style>
 </head>
 <body>
@@ -248,16 +265,20 @@
     }
 
     function calcularValorAutomatico() {
-      if (origemCoords && destinoCoords) {
-        const distancia = calcularDistancia(origemCoords, destinoCoords);
-        const total = Math.ceil(distancia / 2) * 6;
-        document.getElementById('resultado').innerText =
-          `Distância: ${distancia.toFixed(2)} km | Valor Total: R$ ${total.toFixed(2)}`;
-        document.getElementById('resumoViagem').value =
-          `${document.getElementById('origem').value} -------------> ${document.getElementById('destino').value}`;
-      }
-    }
+  if (origemCoords && destinoCoords) {
+    const distancia = calcularDistancia(origemCoords, destinoCoords);
+    const valorCarro = Math.ceil(distancia / 2) * 6;
+    const valorMoto = valorCarro / 2;
 
+    document.getElementById('resultado').innerHTML =
+      `<p><strong>Distância:</strong> ${distancia.toFixed(2)} km</p>
+       <div class="valorCarro">Valor Carro: R$ ${valorCarro.toFixed(2)}</div>
+       <div class="valorMoto">Valor Moto: R$ ${valorMoto.toFixed(2)}</div>`;
+
+    document.getElementById('resumoViagem').value =
+      `${document.getElementById('origem').value} -------------> ${document.getElementById('destino').value}`;
+  }
+}
     function enviarWhatsApp() {
       const origem = document.getElementById('origem').value;
       const destino = document.getElementById('destino').value;
@@ -281,7 +302,7 @@
 
       const numeros = tipoVeiculo === "moto" ?
         ["5571992290058", "5571991585904"] :
-        ["5571981111111", "5571982222222"];
+        ["5571993010261", "5571982222222"];
 
       const numero = numeros[Math.floor(Math.random() * numeros.length)];
       linkWhatsApp = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
