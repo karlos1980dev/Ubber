@@ -294,16 +294,16 @@
       }
 
       const mensagem = `*Nova solicitação de corrida*\n\n` +
-        `*Nome:* ${nome}\n` +
-        `*Veículo:* ${tipoVeiculo.toUpperCase()}\n` +
-        `*Origem:* ${origem}\n` +
-        `*Destino:* ${destino}\n` +
+        `*Nome :* ${nome}\n` +
+        `*Veículo Escolher => :* ${tipoVeiculo.toUpperCase()}\n` +
+        `*Origem :* ${origem}\n` +
+        `*Destino :* ${destino}\n` +
         `${textoResultado}\n` +
-        `*Observações:* ${observacao}`;
+        `*Observações :* ${observacao}`;
 
       const numeros = tipoVeiculo === "moto" ?
         ["5571992290058", "5571991585904"] :
-        ["5571987444544", "5571987444544"];
+        ["5571981208477", "5571993010261"];
 
       const numero = numeros[Math.floor(Math.random() * numeros.length)];
       linkWhatsApp = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
