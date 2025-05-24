@@ -32,12 +32,14 @@
     }
     input, textarea, button, datalist, select {
       width: 100%;
+      text-align:center;
       padding: 10px;
       margin-top: 1rem;
       border: 1px solid #ccc;
       border-radius: 5px;
       box-sizing: border-box;
     }
+    
     button {
       background-color: #28a745;
       color: white;
@@ -144,7 +146,7 @@
     
 
     
-<textarea id="observacao" rows="3" placeholder="Ponto de referência, observações..."></textarea>
+<textarea id="observacao" rows="3" placeholder="Ponto de referência, observações digite aqui..."></textarea>
     <button onclick="enviarWhatsApp()">ENCONTRA MOTORISTA</button>
 
     
@@ -181,6 +183,14 @@
     let marcadorOrigem = null;
     let marcadorDestino = null;
     let linkWhatsApp = "";
+
+    const bairros = {
+      "calabar": ["5571981208477", "5571993010261"],
+      "barra":["5571993010261", "5571981208477"],
+      "brotas": ["", "55926261616"],
+      "garcia": ["557188899911", "557188877766"],
+      "ondina":["5571993010261", "5571981208477"], "alto das pombas": ["5571981208477", "5571993010261"],
+    };
 
     document.getElementById('origem').addEventListener('input', () => {
       autocompletarEndereco('origem', 'lista-origem');
@@ -225,10 +235,7 @@
         const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&q=${encodeURIComponent(endereco)}`);
         const data = await res.json();
         if (data && data[0]) {
-          const latlng = {
-            lat: parseFloat(data[0].lat),
-            lng: parseFloat(data[0].lon)
-          };
+          const latlng = { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) };
 
           const rua = data[0].address.road || "";
           const bairro = data[0].address.suburb || "";
@@ -258,33 +265,44 @@
       const R = 6371;
       const dLat = (coord2.lat - coord1.lat) * Math.PI / 180;
       const dLon = (coord2.lng - coord1.lng) * Math.PI / 180;
-      const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      const a = Math.sin(dLat / 2) ** 2 +
         Math.cos(coord1.lat * Math.PI / 180) * Math.cos(coord2.lat * Math.PI / 180) *
-        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        Math.sin(dLon / 2) ** 2;
       const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
       return R * c;
     }
 
     function calcularValorAutomatico() {
-  if (origemCoords && destinoCoords) {
-    const distancia = calcularDistancia(origemCoords, destinoCoords);
-    const valorCarro = Math.ceil(distancia / 2) * 5;
-    const valorMoto = valorCarro / 2;
+      if (origemCoords && destinoCoords) {
+        const distancia = calcularDistancia(origemCoords, destinoCoords);
+        const valorCarro = Math.ceil(distancia / 2) * 5;
+        const valorMoto = valorCarro / 2;
 
-    document.getElementById('resultado').innerHTML =
-      `<p><strong>Distância:</strong> ${distancia.toFixed(2)} km</p>
-       <div class="valorCarro">Valor Carro: R$ ${valorCarro.toFixed(2)}</div>
-       <div class="valorMoto">Valor Moto: R$ ${valorMoto.toFixed(2)}</div>`;
+        document.getElementById('resultado').innerHTML =
+          `<p><strong>Distância:</strong> ${distancia.toFixed(2)} km</p>
+           <div class="valorCarro">Valor Carro: R$ ${valorCarro.toFixed(2)}</div>
+           <div class="valorMoto">Valor Moto: R$ ${valorMoto.toFixed(2)}</div>`;
 
-    document.getElementById('resumoViagem').value =
-      `${document.getElementById('origem').value} -------------> ${document.getElementById('destino').value}`;
-  }
-}
+        document.getElementById('resumoViagem').value =
+          `${document.getElementById('origem').value} -------------> ${document.getElementById('destino').value}`;
+      }
+    }
+
+    function detectarBairro(origem) {
+      const origemMinuscula = origem.toLowerCase();
+      for (let bairro in bairros) {
+        if (origemMinuscula.includes(bairro)) {
+          return bairro;
+        }
+      }
+      return null;
+    }
+
     function enviarWhatsApp() {
-      const origem = document.getElementById('origem').value;
-      const destino = document.getElementById('destino').value;
-      const nome = document.getElementById('nome').value;
-      const observacao = document.getElementById('observacao').value;
+      const origem = document.getElementById('origem').value.trim();
+      const destino = document.getElementById('destino').value.trim();
+      const nome = document.getElementById('nome').value.trim();
+      const observacao = document.getElementById('observacao').value.trim();
       const tipoVeiculo = document.getElementById('veiculo').value;
       const textoResultado = document.getElementById('resultado').innerText;
 
@@ -294,16 +312,23 @@
       }
 
       const mensagem = `*Nova solicitação de corrida*\n\n` +
-        `*Nome :* ${nome}\n` +
-        `*Veículo Escolher => :* ${tipoVeiculo.toUpperCase()}\n` +
-        `*Origem :* ${origem}\n` +
-        `*Destino :* ${destino}\n` +
+        `*Nome:* ${nome}\n` +
+        `*Veículo Escolhido:* ${tipoVeiculo.toUpperCase()}\n` +
+        `*Origem:* ${origem}\n` +
+        `*Destino:* ${destino}\n` +
         `${textoResultado}\n` +
-        `*Observações :* ${observacao}`;
+        `*Observações:* ${observacao}`;
 
-      const numeros = tipoVeiculo === "moto" ?
-        ["5571992290058", "5571991585904"] :
-        ["5571981208477", "5571993010261"];
+      const bairroDetectado = detectarBairro(origem);
+      let numeros;
+
+      if (bairroDetectado) {
+        numeros = bairros[bairroDetectado];
+      } else {
+        numeros = tipoVeiculo === "moto" ?
+          ["5571992290058", "5571991585904"] :
+          ["5571981208477", "5571993010261"];
+      }
 
       const numero = numeros[Math.floor(Math.random() * numeros.length)];
       linkWhatsApp = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
@@ -312,13 +337,13 @@
       document.getElementById("meuModal").style.display = "block";
     }
 
-    function fecharModal() {
-      document.getElementById("meuModal").style.display = "none";
-    }
-
     function abrirWhatsApp() {
       window.open(linkWhatsApp, "_blank");
       fecharModal();
+    }
+
+    function fecharModal() {
+      document.getElementById("meuModal").style.display = "none";
     }
   </script>
 </body>
