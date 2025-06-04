@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="shortcut icon" type="image/jpg" href="https://raw.githubusercontent.com/karlos1980dev/Ubber/refs/heads/main/vou%20j%C3%A1.jpg"/>
+  <link rel="icon" href="https://raw.githubusercontent.com/karlos1980dev/Ubber/refs/heads/main/vou%20j%C3%A1.jpg" type="image/jpg"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ 
+  <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VOU-JÁ-SSA</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      
+      color: #333;
+      
+         
+      background-color: #121212;
+
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    
+
+    }
+
+    h1 {
+      text-align: center;
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+
+    .linha {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .input-group {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      padding: 8px;
+    }
+
+    .input-group i {
+      margin-right: 8px;
+      color: #007bff;
+    }
+
+    .input-group input {
+      border: none;
+      flex: 1;
+      outline: none;
+      font-size: 16px;
+    }
+
+    select, button {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      background: #fff;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #mapa {
+      height: 200px;
+      margin-top: 10px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid #007bff;
+    }
+
+    #resumo {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    #resumo h2 {
+      color: #007bff;
+    }
+
+    #resumo p {
+      margin: 5px 0;
+    }
+    
+
+ .input-com-botao input {
+  width: 100%;
+  padding-right: 40px; /* espaço para o botão */
+  padding-left: 10px;
+  height: 40px;
+  font-size: 16px;
+}
+
+.input-com-botao button {
+  position: absolute;
+  right: 10px;
+  top: 4px;
+  height: 32px;
+  width: 32px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+</style>
+
+
+</head>
+<body>
+
+  <h1><i class="fas fa-map-marked-alt"></i> VOU-JÁ-SSA</h1>
+<div class="linha">
+  <div class="input-group">
+    <i class="fas fa-user"></i>
+    <input style="text-align:center; "type="text" id="nome" placeholder="Seu nome" />
+  </div>
+</div>
+  <div class="linha">
+    <div class="input-group input-com-botao">
+  <i class="fas fa-location-dot"></i>
+  <input type="text" id="origem" placeholder="Origem" />
+  <button onclick="localizarUsuario()">📍</button>
+</div>
+    <div class="input-group">
+      <i class="fas fa-flag-checkered"></i>
+      <input type="text" id="destino" placeholder="Destino" />
+    </div>
+  </div>
+
+  <div class="linha">
+    <select id="veiculo">
+       
+  <option value="">ESCOLHA UM VEÍCULO</option>
+  <option value="carro">Carro</option>
+  <option value="moto">Moto</option>
+  <option value="carreto">Carreto</option>
+</select>
+   
+
+    <select id="pagamento">
+  <option value="">FORMA DE PAGAMENTO</option>
+  <option value="dinheiro">Dinheiro</option>
+  <option value="pix">Pix</option>
+  <option value="cartao">Cartão</option>
+</select>
+  </div>
+
+  <button onclick="calcularRota()"><i class="fas fa-route"></i> Solicitar</button>
+
+  <div id="mapa"></div>
+
+  <div id="resumo" style="display:none;">
+      <button onclick="enviarWhatsApp()"><i class="fab fa-whatsapp"></i> CONFIRMAR CORRIDA</button>
+    <h2><i class="fas fa-file-alt"></i> Resumo da Viagem</h2>
+    <p><strong>👤 Nome:</strong> <span id="res-nome"></span></p>
+    <p><strong>📍 Origem:</strong> <span id="res-origem"></span></p>
+    <p><strong>🏁 Destino:</strong> <span id="res-destino"></span></p>
+    <p><strong>🚗 Veículo:</strong> <span id="res-veiculo"></span></p>
+    <p><strong>📏 Distância:</strong> <span id="res-distancia"></span></p>
+    <p><strong>⏱ Tempo estimado:</strong> <span id="res-tempo"></span></p>
+    <p><strong>💳 Pagamento:</strong> <span id="res-pagamento"></span></p>
+    <p><strong>💰 Valor da Corrida:</strong> R$ <span id="res-preco"></span></p>
+    
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- Adicione um botão para buscar coordenadas por bairro -->
+<input id="origem" placeholder="Digite o bairro ou endereço de origem">
+
+
+<script>
+const map = L.map('mapa').setView([-12.9714, -38.5014], 12);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+// Lista de motoristas por bairro
+const motoristas = {
+  "calabar": {
+    carro: ["5571991111111", "5571992222222"],
+    moto: ["5571993333333", "5571993333334"],
+    carreto: ["5571994444444", "5571994444445"]
+  },
+  "barra": {
+    carro: ["5571995555555", "5571995555556"],
+    moto: ["5571996666666", "5571996666667"],
+    carreto: ["5571997777777", "5571997777778"]
+  }
+};
+
+function normalizarTexto(texto) {
+  return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+}
+
+function buscarEnderecoFormatado(endereco) {
+  const url = `https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&limit=1&q=${encodeURIComponent(endereco + ", Salvador, Bahia")}`;
+  return fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      if (data.length === 0) throw new Error("Endereço não encontrado.");
+      const item = data[0];
+      const { road = "", suburb = "", neighbourhood = "", house_number = "", city = "", town = "" } = item.address;
+      const bairro = suburb || neighbourhood;
+      const cidade = city || town || "";
+      if (cidade.toLowerCase() !== "salvador") throw new Error("Endereço fora de Salvador.");
+      return {
+        display: `${road} ${house_number || ""} - ${bairro}, Salvador`,
+        bairroOriginal: bairro,
+        bairroNormalizado: normalizarTexto(bairro),
+        lat: parseFloat(item.lat),
+        lon: parseFloat(item.lon)
+      };
+    });
+}
+
+function calcularDistancia(lat1, lon1, lat2, lon2) {
+  const R = 6371;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLon / 2) ** 2;
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
+
+function calcularRota() {
+  const nome = document.getElementById("nome").value.trim();
+  const origem = document.getElementById("origem").value.trim();
+  const destino = document.getElementById("destino").value.trim();
+  const veiculo = document.getElementById("veiculo").value;
+  const pagamento = document.getElementById("pagamento").value;
+
+  if (!nome) return alert("Digite seu nome.");
+  if (!origem || !destino) return alert("Preencha os campos de origem e destino.");
+  if (!veiculo) return alert("Selecione um tipo de veículo.");
+  if (!pagamento) return alert("Selecione uma forma de pagamento.");
+
+  Promise.all([buscarEnderecoFormatado(origem), buscarEnderecoFormatado(destino)])
+    .then(([origemInfo, destinoInfo]) => {
+      const distancia = calcularDistancia(origemInfo.lat, origemInfo.lon, destinoInfo.lat, destinoInfo.lon);
+      const tempoEstimado = Math.ceil(distancia / 30 * 60);
+      let preco = Math.max(10, distancia * 2);
+      if (veiculo === "moto") preco /= 2;
+      else if (veiculo === "carreto") preco *= 3;
+
+      document.getElementById("res-origem").textContent = origemInfo.display;
+      document.getElementById("res-destino").textContent = destinoInfo.display;
+      document.getElementById("res-veiculo").textContent = veiculo;
+      document.getElementById("res-distancia").textContent = distancia.toFixed(2) + " km";
+      document.getElementById("res-tempo").textContent = tempoEstimado + " min";
+      document.getElementById("res-pagamento").textContent = pagamento;
+      document.getElementById("res-nome").textContent = nome;
+      document.getElementById("res-preco").textContent = preco.toFixed(2);
+      document.getElementById("resumo").style.display = "block";
+
+      map.setView([origemInfo.lat, origemInfo.lon], 13);
+      map.eachLayer(layer => {
+        if (layer instanceof L.Marker || layer instanceof L.Polyline) map.removeLayer(layer);
+      });
+      L.marker([origemInfo.lat, origemInfo.lon]).addTo(map).bindPopup("Origem").openPopup();
+      L.marker([destinoInfo.lat, destinoInfo.lon]).addTo(map).bindPopup("Destino");
+      L.polyline([[origemInfo.lat, origemInfo.lon], [destinoInfo.lat, destinoInfo.lon]], { color: 'blue' }).addTo(map);
+
+      window.viagem = {
+        nome,
+        origem: origemInfo.display,
+        destino: destinoInfo.display,
+        bairroOriginal: origemInfo.bairroOriginal,
+        bairroNormalizado: origemInfo.bairroNormalizado,
+        veiculo,
+        distancia: distancia.toFixed(2),
+        tempo: tempoEstimado,
+        preco: preco.toFixed(2),
+        pagamento
+      };
+    })
+    .catch(err => alert("Erro: " + err.message));
+}
+
+function enviarWhatsApp() {
+  const viagem = window.viagem || {};
+  const { nome, origem, destino, bairroOriginal, bairroNormalizado, veiculo, distancia, tempo, preco, pagamento } = viagem;
+
+  if (!nome || !origem || !destino || !bairroNormalizado || !veiculo || !distancia || !pagamento) {
+    alert("Calcule a rota antes de enviar para o WhatsApp.");
+    return;
+  }
+
+  if (!motoristas[bairroNormalizado] || !motoristas[bairroNormalizado][veiculo]) {
+    alert(`Nenhum motorista cadastrado para o bairro "${bairroOriginal}" e tipo "${veiculo}".`);
+    return;
+  }
+
+  const lista = motoristas[bairroNormalizado][veiculo];
+  const numeroAleatorio = lista[Math.floor(Math.random() * lista.length)];
+
+  const mensagem = `🚗 *VOU-JÁ-SSA*\n\n👤 Nome: ${nome}\n📍 Origem: ${origem}\n🏁 Destino: ${destino}\n🚘 Veículo: ${veiculo}\n📏 Distância: ${distancia} km\n⏱ Tempo: ${tempo} min\n💰 Valor: R$ ${preco}\n💳 Pagamento: ${pagamento}`;
+  const link = `https://wa.me/${numeroAleatorio}?text=${encodeURIComponent(mensagem)}`;
+
+  window.open(link, "_blank");
+}
+
+window.onload = () => {
+  localizarUsuario();
+};
+
+function localizarUsuario() {
+  if (!navigator.geolocation) {
+    alert("Geolocalização não é suportada pelo seu navegador.");
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(async (position) => {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`;
+
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      const endereco = data.display_name;
+      document.getElementById("origem").value = endereco;
+
+      L.marker([lat, lon]).addTo(map).bindPopup("Você está aqui").openPopup();
+      map.setView([lat, lon], 15);
+    } catch (error) {
+      alert("Erro ao obter endereço: " + error.message);
+    }
+  }, (error) => {
+    alert("Erro ao obter localização: " + error.message);
+  });
+}
+
+// Botão para buscar coordenadas digitando o bairro
+document.getElementById('btnBuscarCoordenadas').addEventListener('click', () => {
+  const bairro = document.getElementById('origem').value.trim();
+  if (!bairro) {
+    alert("Digite o nome de um bairro.");
+    return;
+  }
+
+  fetch(`https://nominatim.openstreetmap.org/search?format=json&city=Salvador&state=Bahia&country=Brazil&q=${encodeURIComponent(bairro)}`)
+    .then(response => response.json())
+    .then(data => {
+      if (data.length > 0) {
+        const lat = parseFloat(data[0].lat);
+        const lon = parseFloat(data[0].lon);
+        L.marker([lat, lon]).addTo(map).bindPopup("Bairro informado").openPopup();
+        map.setView([lat, lon], 14);
+        alert(`Localização encontrada: ${lat}, ${lon}`);
+      } else {
+        alert("Bairro não encontrado. Tente novamente.");
+      }
+    })
+    .catch(error => {
+      console.error('Erro ao buscar localização:', error);
+    });
+});
+</script>
+</body>
+  </html>
