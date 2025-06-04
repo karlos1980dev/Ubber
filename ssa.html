@@ -244,22 +244,22 @@ function calcularDistancia(lat1, lon1, lat2, lon2) {
   const R = 6371;
   const dLat = (lat2 - lat1) * Math.PI / 180;
   const dLon = (lon2 - lon1) * Math.PI / 180;
-  const a = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLon / 2) ** 2;
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const a = Math.sin(dLat/2)**2 + Math.cos(lat1 * Math.PI/180) * Math.cos(lat2 * Math.PI/180) * Math.sin(dLon/2)**2;
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
   return R * c;
 }
 
 function calcularRota() {
-  const nome = document.getElementById("nome").value.trim();
-  const origem = document.getElementById("origem").value.trim();
-  const destino = document.getElementById("destino").value.trim();
+  const nome = document.getElementById("nome").value;
+  const origem = document.getElementById("origem").value;
+  const destino = document.getElementById("destino").value;
   const veiculo = document.getElementById("veiculo").value;
   const pagamento = document.getElementById("pagamento").value;
 
-  if (!nome) return alert("Digite seu nome.");
-  if (!origem || !destino) return alert("Preencha os campos de origem e destino.");
-  if (!veiculo) return alert("Selecione um tipo de veículo.");
-  if (!pagamento) return alert("Selecione uma forma de pagamento.");
+  if (!origem || !destino) {
+    alert("Preencha origem e destino.");
+    return;
+  }
 
   Promise.all([buscarEnderecoFormatado(origem), buscarEnderecoFormatado(destino)])
     .then(([origemInfo, destinoInfo]) => {
@@ -307,12 +307,7 @@ function enviarWhatsApp() {
   const viagem = window.viagem || {};
   const { nome, origem, destino, bairroOriginal, bairroNormalizado, veiculo, distancia, tempo, preco, pagamento } = viagem;
 
-  if (!nome || !origem || !destino || !bairroNormalizado || !veiculo || !distancia || !pagamento) {
-    alert("Calcule a rota antes de enviar para o WhatsApp.");
-    return;
-  }
-
-  if (!motoristas[bairroNormalizado] || !motoristas[bairroNormalizado][veiculo]) {
+  if (!bairroNormalizado || !motoristas[bairroNormalizado] || !motoristas[bairroNormalizado][veiculo]) {
     alert(`Nenhum motorista cadastrado para o bairro "${bairroOriginal}" e tipo "${veiculo}".`);
     return;
   }
@@ -326,38 +321,7 @@ function enviarWhatsApp() {
   window.open(link, "_blank");
 }
 
-window.onload = () => {
-  localizarUsuario();
-};
-
-function localizarUsuario() {
-  if (!navigator.geolocation) {
-    alert("Geolocalização não é suportada pelo seu navegador.");
-    return;
-  }
-
-  navigator.geolocation.getCurrentPosition(async (position) => {
-    const lat = position.coords.latitude;
-    const lon = position.coords.longitude;
-    const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`;
-
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      const endereco = data.display_name;
-      document.getElementById("origem").value = endereco;
-
-      L.marker([lat, lon]).addTo(map).bindPopup("Você está aqui").openPopup();
-      map.setView([lat, lon], 15);
-    } catch (error) {
-      alert("Erro ao obter endereço: " + error.message);
-    }
-  }, (error) => {
-    alert("Erro ao obter localização: " + error.message);
-  });
-}
-
-// Botão para buscar coordenadas digitando o bairro
+// Busca por coordenadas digitando o nome do bairro no input #origem
 document.getElementById('btnBuscarCoordenadas').addEventListener('click', () => {
   const bairro = document.getElementById('origem').value.trim();
   if (!bairro) {
@@ -384,4 +348,4 @@ document.getElementById('btnBuscarCoordenadas').addEventListener('click', () => 
 });
 </script>
 </body>
-  </html>
+    </html>
