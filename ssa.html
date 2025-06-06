@@ -194,8 +194,6 @@
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <!-- Adicione um botão para buscar coordenadas por bairro -->
-<input id="origem" placeholder="Digite o bairro ou endereço de origem">
-
 
 <script>
 const map = L.map('mapa').setView([-12.9714, -38.5014], 12);
@@ -203,16 +201,3408 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
 // Lista de motoristas por bairro
 const motoristas = {
-  "calabar": {
-    carro: ["5571981208477", "5571993010261"],
-    moto: ["5571993333333", "5571993333334"],
-    carreto: ["5571987506093", "5571994444445"]
+  
+  "Acupe": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
   },
-  "barra": {
-    carro: ["5571995555555", "5571995555556"],
-    moto: ["5571996666666", "5571996666667"],
-    carreto: ["5571997777777", "5571997777778"]
+  "Aeroporto": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Águas Claras": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Alto da Terezinha": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Alto das Pombas": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Alto do Cabrito": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Alto do Coqueirinho": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Amaralina": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Aquarius": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Areia Branca": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Arenoso": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Arraial do Retiro": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Bairro da Paz": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Baixa de Quintas": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Barbalho": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Barra": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Barreiras": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Barris": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Beiru/Tancredo Neves": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Boa Viagem": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Boa Vista de Brotas": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Boa Vista de São Caetano": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Boca da Mata": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Boca do Rio": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Bom Juá": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Bonfim": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Brotas": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Cabula": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Cabula VI": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Caixa D'Água": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Cajazeiras II": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Cajazeiras IV": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Cajazeiras V": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Cajazeiras VI": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Cajazeiras VII": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Cajazeiras VIII": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Cajazeiras X": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Cajazeiras XI": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Calabar": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Calabetão": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Calçada": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Caminho das Árvores": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Caminho de Areia": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Campinas de Pirajá": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Canabrava": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Candeal": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Canela": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Capelinha": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Cassange": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Castelo Branco": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Centro": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Centro Administrativo da Bahia": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Centro Histórico": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Chame‑Chame": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Chapada do Rio Vermelho": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Cidade Nova": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Comércio": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Cosme de Farias": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Costa Azul": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Coutos": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Curuzu": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Dom Avelar": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Dois de Julho": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Doron": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Engenho Velho da Federação": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Engenho Velho de Brotas": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Engomadeira": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Fazenda Coutos": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Fazenda Grande do Retiro": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Fazenda Grande I": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Fazenda Grande II": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Fazenda Grande III": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Fazenda Grande IV": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Federação": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Garcia": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Graça": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Granjas Rurais Presidente Vargas": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Horto Florestal": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "IAPI": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Ilha de Bom Jesus dos Passos": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Ilha de Maré": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Ilha dos Frades": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Ilha Amarela": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Imbuí": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Itacaranha": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Itaigara": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Itapuã": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Itinga": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Jaguaripe I": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Jardim Armação": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Jardim Cajazeiras": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Jardim das Margaridas": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Jardim Nova Esperança": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Jardim Santo Inácio": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Lapinha": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Liberdade": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Lobato": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Luiz Anselmo": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Macaúbas": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Mangueira": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Marechal Rondon": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Mares": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Massaranduba": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Mata Escura": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Matatu": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Mirantes de Periperi": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Monte Serrat": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Moradas da Lagoa": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Mussurunga": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Narandiba": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Nazaré": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Nordeste de Amaralina": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Nova Brasília": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Nova Constituinte": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Nova Esperança": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Nova Sussuarana": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Novo Horizonte": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Novo Marotinho": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Ondina": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Palestina": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Paripe": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Patamares": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Pau da Lima": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Pau Miúdo": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Periperi": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Pernambués": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Pero Vaz": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Piatã": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Pirajá": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Pituaçu": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Pituba": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Plataforma": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Porto Seco Pirajá": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Praia Grande": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Resgate": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Retiro": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Ribeira": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Rio Sena": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Rio Vermelho": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Roma": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Saboeiro": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Santa Cruz": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Santa Luzia": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Santa Mônica": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Santo Agostinho": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Santo Antônio": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "São Caetano": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "São Cristóvão": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "São Gonçalo": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "São João do Cabrito": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "São Marcos": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "São Rafael": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "São Tomé": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Saramandaia": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Saúde": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Sete de Abril": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Stella Maris": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "STIEP": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Sussuarana": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Tororó": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Trobogy": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Uruguai": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Vale das Pedrinhas": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Vale dos Lagos": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Valéria": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Vila Canária": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Vila Laura": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Vila Ruy Barbosa/Jardim Cruzeiro": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Vitória": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
+  },
+  "Vista Alegre": {
+    "carro": [
+      {
+        "numero": "5571992290058",
+        "nome": "Carlos"
+      }
+    ],
+    "moto": [
+      {
+        "numero": "5571977777777",
+        "nome": "Carlos Moto"
+      }
+    ],
+    "carreto": [
+      {
+        "numero": "5571000000000",
+        "nome": "Pedro"
+      }
+    ]
   }
+
 };
 
 function normalizarTexto(texto) {
